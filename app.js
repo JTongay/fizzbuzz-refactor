@@ -4,7 +4,7 @@ $(function () {
     .on('click', '#clear', clearNum)
     .on('keydown', '#text-box', enterKey)
     .on('keydown', '#text-box', clearKey);
-
+  //adds number in textbox
   function addNum() {
     event.preventDefault();
     var inputNum = $('#text-box').val();
@@ -16,19 +16,19 @@ $(function () {
       $('#text-box').val('');
     }
   }
-
+  //clears game
   function clearNum() {
     $('section').empty();
     $('#text-box').val('');
   }
-
+  //enter key functionality
   function enterKey(event) {
     if (event.keyCode === 13) {
       addNum(event);
       $('#text-box').val('');
     }
   }
-
+  //escape key functionality
   function clearKey(event) {
     if (event.keyCode === 27) {
       clearNum(event);
@@ -40,7 +40,7 @@ $(function () {
 
 
 
-
+//fizzbuzz function
 function fizzBuzz(max) {
   for (var i = 1; i <= max; i++) {
     console.log(i);
