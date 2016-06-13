@@ -1,7 +1,9 @@
 $(function () {
   $(document)
     .on('click', '#submit', addNum)
-    .on('click', '#clear', clearNum);
+    .on('click', '#clear', clearNum)
+    .on('keydown', '#text-box', enterKey)
+    .on('keydown', '#text-box', clearKey);
 
   function addNum() {
     event.preventDefault();
@@ -18,6 +20,20 @@ $(function () {
   function clearNum() {
     $('section').empty();
     $('#text-box').val('');
+  }
+
+  function enterKey(event) {
+    if (event.keyCode === 13) {
+      addNum(event);
+      $('#text-box').val('');
+    }
+  }
+
+  function clearKey(event) {
+    if (event.keyCode === 27) {
+      clearNum(event);
+      $('text-box').val();
+    }
   }
 
 });
